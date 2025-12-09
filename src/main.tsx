@@ -16,7 +16,7 @@ import TermsAndConditionsPage from './pages/terms-and-conditions/TermsAndConditi
 
 const enabledRoutes = new Set([
   'about',
-  'services',
+  // 'services',
   'contact',
   'smart-spaces',
   'book-tour',
