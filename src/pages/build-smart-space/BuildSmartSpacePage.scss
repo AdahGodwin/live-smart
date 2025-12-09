@@ -1,0 +1,75 @@
+.build-smart-space-page {
+  background-color: var(--background-color);
+  margin-bottom: 39px;
+}
+
+.build-options-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 60px 2rem; // Mobile margin
+
+  @media (min-width: 768px) {
+    padding: 60px 10rem; // Tablet margin
+  }
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1200px) {
+    padding: 60px 15rem; // PC margin
+
+  }
+
+  .build-option-card {
+    position: relative;
+   width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(35, 31, 32, 0.75);
+      z-index: 1;
+    }
+
+    .space-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 1rem;
+      
+      h3 {
+        font-size: 24px;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 16px 14px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: var(--primary-color-dark);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,193 @@
+.book-tour-page {
+  background-color: var(--background-color);
+
+  .tour-content-container {
+    position: relative;
+    z-index: 50;
+    background-color: white;
+    margin: -100px 2rem 0; // Mobile margin
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+
+    @media (min-width: 768px) {
+      margin: -100px 10rem 0; // Tablet margin
+      padding: 3rem;
+    }
+
+    @media (min-width: 1200px) {
+      margin: -100px 15rem 0; // PC margin
+      padding: 2.5rem;
+    }
+  }
+
+  .tour-tabs-wrapper {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tour-tabs {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    border-bottom: 1px solid rgba(35, 31, 32, 0.2);
+
+    .tab-btn {
+      min-width: 170px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #231F2080;
+      padding: 1rem 1.5rem;
+      font-size: 10px;
+      font-weight: 700;
+      color: #231F2080;
+      cursor: pointer;
+      transition: color 0.3s;
+      text-transform: uppercase;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+      }
+
+      &.active {
+        color: #1C1C1C;
+      }
+
+      // &:hover {
+      //   background-color: #00A45014;
+      //   color: black;
+      // }
+    }
+
+    .sliding-underline {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      height: 3px;
+      width: 50%;
+      background-color: #1C1C1C;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &.active-first .sliding-underline {
+      transform: translateX(0%);
+    }
+
+    &.active-second .sliding-underline {
+      transform: translateX(100%);
+    }
+  }
+
+  .tour-tab-content {
+    position: relative;
+    min-height: 520px;
+  }
+
+  .tour-tab-pane {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+
+  .tour-tab-pane.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .tour-places-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tour-space-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 395px;
+
+      .image-wrapper {
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          flex: 1;
+        }
+      }
+      
+      .tour-action-btn {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--background-color);
+        color: white;
+        border: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: grid;
+        place-items: center;
+        min-height: 3.5rem; // Ensure consistent height
+
+        &:hover {
+          background-color: var(--primary-color-dark);
+        }
+
+        .btn-text {
+          grid-area: 1 / 1;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          white-space: nowrap;
+
+          &.hidden {
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+          }
+
+          &.visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      .tour-space-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #231F20;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+    }
+
+    .mobile-divider {
+      height: 1px;
+      background-color: #1C1C1C;
+      width: 100%;
+      margin: 0 auto;
+      
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}

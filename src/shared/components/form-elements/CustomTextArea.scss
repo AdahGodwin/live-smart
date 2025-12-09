@@ -1,0 +1,42 @@
+.custom-textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  textarea {
+    background-color: rgba(255, 255, 255, 0.06);;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-family: inherit;
+    resize: vertical;
+    height: 279px;
+    color: white;
+    resize: none;
+
+    &:focus {
+      background-color: #e0e0e0;
+      color: black;
+    }
+
+    &::placeholder {
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 10px;
+      padding: 0.5rem;
+    }
+  }
+}

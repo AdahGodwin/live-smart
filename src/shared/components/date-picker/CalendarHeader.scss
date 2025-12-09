@@ -1,0 +1,92 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.3rem;
+  color: #eaeaea;
+  font-size: 1.1rem;
+
+  .control-button {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    transition: background 0.2s;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+      background: #00A45014;
+    
+    &.is-disabled {
+      color: rgba(255, 255, 255, 0.5);
+      cursor: not-allowed;
+      background: transparent;
+    }
+  }
+
+  .calendar-header__current-month {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.85rem;
+    cursor: pointer;
+    position: relative;
+  }
+
+
+  .calendar-header__current-month:hover {
+    border-color: var(--primary-color);
+  }
+
+  .calendar-header__icon {
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .calendar-header__dropdown {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--background-color);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.35rem 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    min-width: 180px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .calendar-header__dropdown-item {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #eaeaea;
+    text-align: left;
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .calendar-header__dropdown-item:hover,
+  .calendar-header__dropdown-item.is-active {
+    background: var(--primary-color);
+  }
+
+  .calendar-header__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

@@ -1,0 +1,14 @@
+.time-slot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  max-height: 380px;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    overflow-x: auto;
+    margin-top: .5rem;
+  }
+}
