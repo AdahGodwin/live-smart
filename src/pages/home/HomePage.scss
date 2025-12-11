@@ -1,3 +1,359 @@
 .home-page {
-  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+  color: #fff;
+
+  .next-section {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    animation: wobble 2s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
+  }
+  .home-section {
+    position: relative;
+    // min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // text-align: left;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 0 15rem;
+
+    @media (max-width: 1100px) {
+      // min-height: 60vh;
+      padding: 0 5rem;
+    }
+    @media (max-width: 768px) {
+      padding: 0 2rem;
+    }
+  }
+
+  .section-indicator {
+    position: fixed;
+    right: 115px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 3;
+
+    .indicator-bar {
+      width: 2px;
+      height: 24px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+      transition: all 0.3s ease, transform 0.3s ease;
+
+      &.is-active {
+        width: 4px;
+        background-color: white;
+      }
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .hero-section {
+    min-height: calc(100vh - 72px);
+    justify-content: flex-start;
+
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      display: flex;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      // transform: translateX(100%);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .hero-slide.is-prev {
+      transform: translateX(-100%);
+    }
+    .hero-slide.is-next {
+      transform: translateX(100%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: #231f20cc;
+    }
+
+    .hero-content {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        line-height: 1.2;
+        font-size: 72px;
+        font-weight: 800;
+      }
+
+      p {
+        margin-top: 24px;
+        font-size: 24px;
+      }
+
+      @media (max-width: 1100px) {
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        h1 {
+          font-size: 36px;
+        }
+        p {
+          font-size: 12px;
+          max-width: 280px;
+        }
+      }
+    }
+
+    .hero-cta-btn {
+      width: fit-content;
+      margin-top: 60px;
+    }
+
+    .hero-arrow-left {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1rem;
+      @media (max-width: 350px) {
+        left: 0.5rem;
+      }
+    }
+
+    .hero-arrow-right {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-arrow {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: #00000080;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 1100px) {
+        width: 35px;
+        height: 35px;
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 3;
+    }
+
+    .hero-dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.is-active {
+        background: var(--primary-color);
+      }
+    }
+    @media (max-width: 1100px) {
+      min-height: 0;
+      height: 500px;
+    }
+
+     @media (max-width: 600px) {
+      min-height: 0;
+      height: 400px;
+    }
+  }
+
+
+  .section-content {
+    text-align: center;
+    height: calc(100vh - 72px);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 80px 0 180px 0;
+
+    h1 {
+      font-size: 72px;
+      font-weight: 800;
+    }
+    p {
+      margin-top: 16px;
+      font-size: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      padding: 20px 0;
+      height: 500px;
+      h1 {
+        font-size: 36px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+    @media (max-width:600px) {
+      height: 400px;
+    }
+  }
+
+  .section-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .form-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 80px 0;
+
+    h1 {
+      font-size: 72px;
+      font-weight: 800;
+    }
+    p {
+      margin-top: 16px;
+      font-size: 24px;
+    }
+    @media (max-width: 1100px) {
+      padding: 20px 0;
+      h1 {
+        font-size: 36px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .inquiry-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    button {
+      align-self: center;
+    }
+  }
+
+  .form-row {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home-section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .hero-controls {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .section-indicator {
+    right: 0.75rem;
+  }
+
+  .hero-dots {
+    left: 1rem;
+  }
+}
+
+// Wobble animation for scroll button
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
 }

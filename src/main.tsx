@@ -15,8 +15,9 @@ import ConsultationPage from './pages/consultation/ConsultationPage.tsx'
 import TermsAndConditionsPage from './pages/terms-and-conditions/TermsAndConditionsPage.tsx'
 
 const enabledRoutes = new Set([
+  "/",
   'about',
-  // 'services',
+  'services',
   'contact',
   'smart-spaces',
   'book-tour',
